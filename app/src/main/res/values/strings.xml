@@ -1,0 +1,5 @@
+<resources>
+  <string name="app_name">ProficiencyExercise</string>
+  <string name="list_is_empty">List is empty</string>
+  <string name="connection_error">Connection error</string>
+</resources>

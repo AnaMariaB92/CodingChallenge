@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <dimen name="activity_horizontal_margin">16dp</dimen>
+  <dimen name="activity_vertical_margin">16dp</dimen>
+  <dimen name="view_facts_item_corner_radius">8dp</dimen>
+  <dimen name="view_facts_item_content_padding">16dp</dimen>
+  <dimen name="view_facts_item_image_view_side_size">40dp</dimen>
+  <dimen name="view_facts_item_head_line_text_size">16sp</dimen>
+  <dimen name="view_facts_content_left_padding">56dp</dimen>
+  <dimen name="view_facts_item_description_text_size">13sp</dimen>
+</resources>
