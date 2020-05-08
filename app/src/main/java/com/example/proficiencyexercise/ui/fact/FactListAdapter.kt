@@ -5,8 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.core.graphics.drawable.RoundedBitmapDrawableFactory
 import androidx.recyclerview.widget.RecyclerView
 
@@ -14,6 +12,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.BitmapImageViewTarget
 import com.example.proficiencyexercise.R
 import com.example.proficiencyexercise.model.Fact
+import kotlinx.android.synthetic.main.view_facts_item.view.*
 
 class FactListAdapter : RecyclerView.Adapter<FactListAdapter.FactViewHolder>() {
 
@@ -41,31 +40,21 @@ class FactListAdapter : RecyclerView.Adapter<FactListAdapter.FactViewHolder>() {
 
     class FactViewHolder internal constructor(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        private val factImage: ImageView? by lazy {
-            itemView.findViewById(R.id.image_view) as ImageView?
-        }
-        private val factTitle: TextView? by lazy {
-            itemView.findViewById(R.id.fact_title) as TextView?
-        }
-        private val factDescription: TextView? by lazy {
-            itemView.findViewById(R.id.fact_description) as TextView?
-        }
-
         fun bind(fact: Fact) {
-            factTitle!!.text = fact.title
-            factDescription!!.text = fact.description
+            itemView.fact_title.text = fact.title
+            itemView.fact_description.text = fact.description
 
             Glide.with(itemView.context)
                 .asBitmap().centerCrop()
                 .load(fact.imageHref)
-                .into(object : BitmapImageViewTarget(factImage!!) {
+                .into(object : BitmapImageViewTarget(itemView.image_view) {
                     override fun setResource(resource: Bitmap?) {
                         super.setResource(resource)
                         val bitmapDrawable = RoundedBitmapDrawableFactory.create(
                             itemView.resources,
                             resource)
                         bitmapDrawable.isCircular = true
-                        factImage!!.setImageDrawable(bitmapDrawable)
+                        itemView.image_view.setImageDrawable(bitmapDrawable)
                     }
                 })
         }
